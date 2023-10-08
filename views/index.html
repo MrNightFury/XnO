@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="container">
+        <div id="activePlayerContainer">
+            <div class="x active"><img src="../src/img/cross.png"></div>
+            <div class="o"><img src="../src/img/zero.png"></div>
+        </div>
+        <div id="gameFieldContainer">
+            <div id="gameField">
+                <!--clickable should be removed when X or O is put, and added back when a new game begins-->
+                <div class="field clickable" id="field1">
+                    <div class="x active"><img src="../src/img/cross.png"></div>
+                </div>
+                <div class="field clickable" id="field2"></div>
+                <div class="field clickable" id="field3"></div>
+                <div class="field clickable" id="field4"></div>
+                <div class="field clickable" id="field5"></div>
+                <div class="field clickable" id="field6"></div>
+                <div class="field clickable" id="field7"></div>
+                <div class="field clickable" id="field8"></div>
+                <div class="field clickable" id="field9"></div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="start">START NEW GAME</button>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../js/input.js"></script>
+</body>
+</html>
