@@ -1,5 +1,10 @@
 $(".field").click(function() {
-    $(this).addClass("active");
+    if(isCrossTurn(currentPlayer)){
+        placeCross($(this));
+    }
+    else{
+        placeZero($(this));
+    }
 });
 
 function isCrossTurn(state){
