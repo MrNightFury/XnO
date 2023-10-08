@@ -14,8 +14,22 @@ function clearField() {
 
 }
 
-function turnEnd() {
-
+function getFieldState(){
+    let fields = $(".field");
+    let fieldState = [[], [], []];
+    fields.each(function(index, element){
+        let state = STATE.NONE;
+        if($(element).children().hasClass("x")){
+            state = STATE.CROSS;
+        }
+        if($(element).children().hasClass("o")){
+            state = STATE.ZERO;
+        }
+        let i = Math.floor(index / 3);
+        let j = index % 3;
+        fieldState[i][j] = state;
+    });
+    return fieldState;
 }
 
 function changePlayer() {
