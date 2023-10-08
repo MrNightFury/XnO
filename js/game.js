@@ -19,7 +19,7 @@ function turnEnd() {
 }
 
 function changePlayer() {
-    
+    currentPlayer = currentPlayer == 'x' ? 'o' : 'x';
 }
 
 /**
