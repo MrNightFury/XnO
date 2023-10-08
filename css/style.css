@@ -22,9 +22,10 @@ body {
 }
 #activePlayerContainer > div {
   margin: 50px;
+  padding-bottom: 10px;
 }
 #activePlayerContainer .active {
-  border-bottom: 10px solid #b82f16;
+  border-bottom: 10px solid #be8602;
   border-radius: 10px;
 }
 .x {
@@ -33,7 +34,7 @@ body {
   align-items: center;
 }
 .x img {
-  width: 165.33px;
+  width: 140px;
   height: auto;
 }
 .o {
@@ -42,7 +43,7 @@ body {
   align-items: center;
 }
 .o img {
-  width: 165.33px;
+  width: 140px;
   height: auto;
 }
 #gameField {
@@ -60,6 +61,9 @@ body {
   width: calc(100% / 3);
   height: calc(100% / 3);
   border: 1px solid #494949;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #gameField .clickable {
   cursor: pointer;
