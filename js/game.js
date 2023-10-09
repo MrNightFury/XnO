@@ -1,7 +1,8 @@
-const STATE = {
+var STATE = {
     NONE: 0,
     ZERO: -1,
     CROSS: 1,
+
     DRAW: 2,
     ERR: 3
 }
@@ -37,7 +38,6 @@ function changePlayer() {
 }
 
 /**
- * 
  * @param {[[number, number, number], [number, number, number], [number, number, number]]} field 
  * @returns 
  */
