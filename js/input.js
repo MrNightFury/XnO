@@ -5,6 +5,7 @@ $(".field").click(function() {
     else{
         placeZero($(this));
     }
+    turnEnd();
 });
 
 function isCrossTurn(state){
