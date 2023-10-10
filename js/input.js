@@ -30,11 +30,17 @@ unitTest_isCrossTurn();
 
 
 function placeCross(field){
-
+    if(field.hasClass("clickable")){
+        field.removeClass("clickable");
+        field.append("<div class=\"x\"><img src=\"../src/img/cross.png\"></div>");
+    }
 }
 
 function placeZero(field){
-    
+    if(field.hasClass("clickable")){
+        field.removeClass("clickable");
+        field.append("<div class=\"o\"><img src=\"../src/img/zero.png\"></div>");
+    }
 }
 
 
