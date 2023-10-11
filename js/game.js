@@ -9,10 +9,14 @@ var STATE = {
 
 var currentPlayer = 'x'; // 'x' or 'o'
 
-var curField;
-
-function clearField() {
-
+function displayResult(state) {
+    if (state == STATE.DRAW) {
+        $("#winner").html("<p>Draw!</p>");
+    } else if (state == STATE.CROSS || state == STATE.ZERO) {
+        $("#winner").html(`<p>${state == STATE.CROSS ? "Cross" : "Zero"} is winner!</p>`);
+    } else {
+        $("#winner").html("<p>Incorrect state</p>");
+    }
 }
 
 function getFieldState(){
@@ -39,7 +43,7 @@ function changePlayer() {
 
 /**
  * @param {[[number, number, number], [number, number, number], [number, number, number]]} field 
- * @returns 
+ * @returns {number}
  */
 function checkWin(field) {
     if (field.length != 3) {
@@ -57,6 +61,9 @@ function checkWin(field) {
     let hasTurns = false;
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
+            if (!(field[i][j] == STATE.NONE || field[i][j] == STATE.CROSS || field[i][j] == STATE.ZERO)) {
+                return STATE.ERR;
+            }
             if (field[i][j] == STATE.NONE) {
                 hasTurns = true;
             }
@@ -111,6 +118,11 @@ function test_checkWin() {
         [STATE.ZERO, STATE.ZERO, STATE.CROSS],
         [STATE.CROSS, STATE.ZERO, STATE.CROSS]
     ]
+    let field8 = [ // STATE.ERR
+        [111, 111, 111],
+        [111, 111, 111],
+        [111, 111, 111]
+    ]
     console.log("Checking tests...");
     console.assert(checkWin(field1) == STATE.CROSS, "Not STATE.CROSS on field1", checkWin(field1))
     console.assert(checkWin(field2) == STATE.ZERO, "Not STATE.ZERO on field2", checkWin(field2))
@@ -119,6 +131,7 @@ function test_checkWin() {
     console.assert(checkWin(field5) == STATE.ERR, "Not STATE.ERR on field5", checkWin(field5))
     console.assert(checkWin(field6) == STATE.DRAW, "Not STATE.DRAW on field6", checkWin(field6))
     console.assert(checkWin(field7) == STATE.DRAW, "Not STATE.DRAW on field7", checkWin(field7))
+    console.assert(checkWin(field8) == STATE.ERR, "Not STATE.ERR on field8", checkWin(field7))
     console.log("Tests end")
 }
 
