@@ -1,5 +1,6 @@
 const { Given, When, Then, AfterAll } = require("@cucumber/cucumber");
 const assert = require('assert');
+const game = require('../js/game.js');
 
 const { Builder, By, Key } = require("selenium-webdriver");
 
@@ -58,11 +59,11 @@ Given('Field is not filled, there are no three cross or zeros in row', {timeout:
     await driver.get('http://127.0.0.1:5500/views/index.html');
 });
 
-let previous_player = currentPlayer;
+let previous_player = game.currentPlayer;
 When('User clicks on empty cell', async () => {
     await driver.findElement(By.id("field1")).click();
 });
 
 Then('Change turn', async () => {
-    assert.notEqual(previous_player, currentPlayer)    
+    assert.notEqual(previous_player, game.currentPlayer)    
 });
