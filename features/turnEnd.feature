@@ -1,20 +1,20 @@
 @turnEnd
-Feature: Put Cross
+Feature: Turn end
 
     @turnEnd_winner
     Scenario: Cross wins
-        Given It's cross's turn, two cross is in row
-        When User places third cross in row
-        Then Cross wins, clear field
+        Given There is a state for cross win
+        When Turn end
+        Then Cross wins, new game starts
 
     @turnEnd_draw
     Scenario: Draw
-        Given Filled field without one cell
-        When User clicks on last empty cell
-        Then Result is draw, clear field
+        Given There is a state for draw at the field 
+        When Turn end
+        Then Result is draw, new game starts
 
     @turnEnd_next_turn
-    Scenario: Not a decisive state
-        Given Field is not filled, there are no three cross or zeros in row
-        When User clicks on any not empty cells
+    Scenario: Not in a decisive state
+        Given Field is not in a decisive state
+        When Turn end
         Then Change turn
