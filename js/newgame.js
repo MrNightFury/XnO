@@ -1,6 +1,7 @@
 
 function turnEnd() {
-    let result = checkWin();
+    let field = getFieldState();
+    let result = checkWin(field);
     if (result == STATE.CROSS || result == STATE.ZERO || result == STATE.DRAW) {
         displayResult(result);
         clearField();
