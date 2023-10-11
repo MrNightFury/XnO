@@ -17,6 +17,7 @@ function turnEnd() {
         changePlayer();
     }
 }
+
 function clearField() {
     for (let i = 1; i < 10; i++) {
         let divElement = document.getElementById(`field${i}`); 
@@ -24,6 +25,7 @@ function clearField() {
         divElement.classList.add('clickable');
     }
 }
+
 function testClear() {
     console.log("Checking tests of clearing...");
     function checkNotNone() {
