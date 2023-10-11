@@ -3,7 +3,7 @@ const assert = require('assert');
 
 const { Builder, By, Key } = require("selenium-webdriver");
 
-const driver = new Builder().forBrowser('chrome').build();
+const driver = new Builder().forBrowser('firefox').build();
 
 Given('It\'s cross\'s turn', {timeout: 100000}, async () => {
     await driver.get('http://127.0.0.1:5500/views/index.html');
@@ -18,8 +18,6 @@ Then('Put cross in cell', async ()=> {
         assert.equal(res, '<div class=\"x\"><img src=\"../src/img/cross.png\"></div>');
     });
 });
-
-
 
 Given('It\'s not cross\'s turn', {timeout: 100000}, async () => {
     await driver.get('http://127.0.0.1:5500/views/index.html');
@@ -55,3 +53,7 @@ Then('Leave cell unchanged', async () => {
         assert.equal(res, field1_contains); // so it is the same as before the clicking
     });
 });
+
+AfterAll(() => {
+    driver.close();
+})
