@@ -1,11 +1,14 @@
 $(".field").click(function() {
+    let turnMade = false;
     if(isCrossTurn(currentPlayer)){
-        placeCross($(this));
+        turnMade = placeCross($(this));
     }
     else{
-        placeZero($(this));
+        turnMade = placeZero($(this));
     }
-    turnEnd();
+    if(turnMade){
+        turnEnd();
+    }
 });
 
 function isCrossTurn(state){
@@ -33,14 +36,18 @@ function placeCross(field){
     if(field.hasClass("clickable")){
         field.removeClass("clickable");
         field.append("<div class=\"x\"><img src=\"../src/img/cross.png\"></div>");
+        return true;
     }
+    return false;
 }
 
 function placeZero(field){
     if(field.hasClass("clickable")){
         field.removeClass("clickable");
         field.append("<div class=\"o\"><img src=\"../src/img/zero.png\"></div>");
+        return true;
     }
+    return false;
 }
 
 
