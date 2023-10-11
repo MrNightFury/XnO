@@ -1,11 +1,4 @@
 
-function clearField() {
-    for (let i = 1; i < 10; i++) {
-        let divElement = document.getElementById(`field${i}`); 
-        divElement.innerHTML = '';
-    }
-}
-
 function turnEnd() {
     let result = checkWin();
     if (result == STATE.CROSS || result == STATE.ZERO || result == STATE.DRAW) {
@@ -16,7 +9,13 @@ function turnEnd() {
         changePlayer();
     }
 }
-
+function clearField() {
+    for (let i = 1; i < 10; i++) {
+        let divElement = document.getElementById(`field${i}`); 
+        divElement.innerHTML = '';
+        divElement.classList.add('clickable');
+    }
+}
 function testClear() {
     console.log("Checking tests of clearing...");
     function checkNotNone() {
@@ -29,6 +28,8 @@ function testClear() {
         }
         return flag;
     }
+    let divElement = document.getElementById(`field1`); 
+    divElement.innerHTML = "1";
     let flag = checkNotNone();
     console.assert(flag == true);
     clearField();
