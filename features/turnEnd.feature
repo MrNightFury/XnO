@@ -16,5 +16,5 @@ Feature: Put Cross
     @turnEnd_next_turn
     Scenario: Not a decisive state
         Given Field is not filled, there are no three cross or zeros in row
-        When User clicks on empty cell
+        When User clicks on any not empty cells
         Then Change turn

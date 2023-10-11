@@ -59,11 +59,16 @@ Given('Field is not filled, there are no three cross or zeros in row', {timeout:
     await driver.get('http://127.0.0.1:5500/views/index.html');
 });
 
-let previous_player = game.currentPlayer;
-When('User clicks on empty cell', async () => {
+let previous_player;
+When('User clicks on any not empty cells', async () => {
+    previous_player = driver.executeScript("return currentPlayer");
     await driver.findElement(By.id("field1")).click();
 });
 
 Then('Change turn', async () => {
     assert.notEqual(previous_player, game.currentPlayer)    
 });
+
+AfterAll(() => {
+    driver.close();
+})
