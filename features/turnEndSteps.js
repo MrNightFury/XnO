@@ -6,7 +6,7 @@ const { Builder, By, Key } = require("selenium-webdriver");
 
 const driver = new Builder().forBrowser('chrome').build();
 
-Given('It\'s cross\'s turn, , two cross is in row', {timeout: 100000}, async () => {
+Given('It\'s cross\'s turn, two cross is in row', {timeout: 100000}, async () => {
     await driver.get('http://127.0.0.1:5500/views/index.html');
     await driver.findElement(By.id("field1")).click();
     await driver.findElement(By.id("field4")).click();
