@@ -39,6 +39,8 @@ function getFieldState(){
 
 function changePlayer() {
     currentPlayer = currentPlayer == 'x' ? 'o' : 'x';
+    $("#activePlayerContainer > .x").toggleClass("active");
+    $("#activePlayerContainer > .o").toggleClass("active");
 }
 
 /**
