@@ -1,11 +1,18 @@
+function newGame(){
+    clearField();
+    currentPlayer = 'x';
+    $("#activePlayerContainer > .x").addClass("active");
+    $("#activePlayerContainer > .o").removeClass("active");
+}
+
+$("#start").click(newGame);
 
 function turnEnd() {
     let field = getFieldState();
     let result = checkWin(field);
     if (result == STATE.CROSS || result == STATE.ZERO || result == STATE.DRAW) {
         displayResult(result);
-        clearField();
-        currentPlayer = 'x';
+        newGame();
     } else {
         changePlayer();
     }
